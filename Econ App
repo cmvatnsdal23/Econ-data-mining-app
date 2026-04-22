@@ -1,0 +1,33 @@
+# TradeScope — R package dependencies
+# Install with: renv::restore()  OR  source("install.R")
+
+packages <- c(
+  "shiny",
+  "shinydashboard",
+  "shinyWidgets",
+  "plotly",
+  "DT",
+  "dplyr",
+  "tidyr",
+  "readr",
+  "readxl",
+  "scales",
+  "ggplot2",
+  "cluster",
+  "factoextra",
+  "dbscan",
+  "rpart",
+  "randomForest",
+  "e1071",
+  "caret",
+  "glmnet",
+  "pROC"
+)
+
+to_install <- packages[!packages %in% installed.packages()[, "Package"]]
+if (length(to_install) > 0) {
+  message("Installing: ", paste(to_install, collapse = ", "))
+  install.packages(to_install, repos = "https://cran.rstudio.com/")
+} else {
+  message("All packages already installed.")
+}
